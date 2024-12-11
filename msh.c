@@ -1,27 +1,3 @@
-// The MIT License (MIT)
-// 
-// Copyright (c) 2024 Trevor Bakker 
-// 
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-// 
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-// 
-// 
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
-
-
 #define _GNU_SOURCE
 
 #include <stdio.h>
@@ -31,10 +7,7 @@
 #include <errno.h>
 #include <string.h>
 
-#define WHITESPACE " \t\n"      // We want to split our command line up into tokens
-                                // so we need to define what delimits our tokens.
-                                // In this case  white space
-                                // will separate the tokens on our command line
+#define WHITESPACE " \t\n"      
 
 #define MAX_COMMAND_SIZE 255    // The maximum command-line size
 
@@ -89,9 +62,6 @@ int main(int argc, char *argv[])
             }
         }
 
-        // remove newline character
-        //command_string[strcspn(command_string, "\n")] = '\0';
-
         char *token[MAX_NUM_ARGUMENTS];
         int token_count = 0;                                 
                                                            
@@ -100,10 +70,6 @@ int main(int argc, char *argv[])
         char *argument_pointer;                                         
                                                             
         char *working_string  = strdup( command_string );                
-
-        // we are going to move the working_string pointer so
-        // keep track of its original value so we can deallocate
-        // the correct amount at the end
 
         // Tokenize the input with whitespace used as the delimiter
         while ( ( (argument_pointer = strsep(&working_string, WHITESPACE ) ) != NULL) && (token_count<MAX_NUM_ARGUMENTS)) 
