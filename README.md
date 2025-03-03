@@ -1,6 +1,6 @@
 # Custom Shell Program
 
-This is a custom shell program written in C that allows users to execute commands, navigate directories, handle basic built-in commands (such as `exit`, `quit`, and `cd`), and supports output redirection to files. It also allows batch mode for reading commands from a file.
+This is a custom shell program written in C that utilizes forking to allow users to execute commands, navigate directories, and handles basic built-in commands (such as `exit`, `quit`, and `cd`), and supports output redirection to files. It also allows batch mode for reading commands from a file.
 
 ## Features
 
